@@ -82,8 +82,18 @@ enum{
 int main(int argc, const char* argv[])
 {
    // @{Load Arguments}
+   // argc < 2 means 
     if(argc <2){
+        //show useage string 
+        printf("lcs [image-file1] ... \n");
+        exit(2);
+    }
 
+    for(int j =0 ; j <argc ; ++j){
+        if(!read_image(argv[j])){
+            printf("fail to load image : %s\n" , argv[j]); 
+            exit(1);
+        }
     }
    //@{Setup}
 
